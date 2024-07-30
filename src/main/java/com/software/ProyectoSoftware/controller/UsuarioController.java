@@ -1,40 +1,46 @@
 package com.software.ProyectoSoftware.controller;
 
-import com.software.ProyectoSoftware.Models.User;
+import com.software.ProyectoSoftware.Models.Usuario;
+import com.software.ProyectoSoftware.dao.UsuarioService;
 import com.software.ProyectoSoftware.dao.daoUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
     @Autowired
-    private daoUser daoUser;
+    private UsuarioService usuarioService;
 
-
-    @RequestMapping(value="Usuario/registro", method= RequestMethod.POST)
-    public void agregarUsuario(@RequestBody User nuevoUsuario) {
-        //encriptamos pw
-
-
-
-        //cambiamos por la  pw encriptada
-
-        daoUser.agregar(nuevoUsuario);
+    @GetMapping
+    public List<Usuario> getAllUsuarios() {
+        return usuarioService.getAllUsuarios();
     }
-    @RequestMapping(value="Usuario/hola", method= RequestMethod.GET)
 
-    public  Map<String, String> hola() {
-        Map<String, String> json= new HashMap<>();
-        json.put("Message","Hola");
-        //encriptamos pw
+    @GetMapping("/{id}")
+    public Optional<Usuario> getUsuarioById(@PathVariable Long id) {
+        return usuarioService.getUsuarioById(id);
+    }
 
+    @PostMapping
+    public Usuario createUsuario(@RequestBody Usuario usuario) {
+        return usuarioService.saveUsuario(usuario);
+    }
 
-        //cambiamos por la  pw encriptada
-        return json;
+    @PutMapping("/{id}")
+    public Usuario updateUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
+        usuario.setId(id);
+        return usuarioService.saveUsuario(usuario);
+    }
 
+    @DeleteMapping("/{id}")
+    public void deleteUsuario(@PathVariable Long id) {
+        usuarioService.deleteUsuario(id);
     }
 }

@@ -1,15 +1,15 @@
 package com.software.ProyectoSoftware.dao;
 
-import com.software.ProyectoSoftware.Models.User;
+import com.software.ProyectoSoftware.Models.Usuario;
 
 import java.util.List;
 
 public interface daoUser {
-    List<User> getUsuarios();
+    List<Usuario> getUsuarios();
 
     void eliminar(int id);
 
-    void agregar(User NuevoUsuario);
+    void agregar(Usuario NuevoUsuario);
 
-    User iniciarSesion(User usuario);
+    Usuario iniciarSesion(Usuario usuario);
 }
