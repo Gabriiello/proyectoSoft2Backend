@@ -7,7 +7,7 @@ import jakarta.persistence.*;
 public class Respuesta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "pregunta_id")
@@ -21,7 +21,7 @@ public class Respuesta {
 
     // Getters y Setters
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -37,7 +37,7 @@ public class Respuesta {
         return esCorrecta;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

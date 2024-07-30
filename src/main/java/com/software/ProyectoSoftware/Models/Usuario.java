@@ -5,12 +5,12 @@ import java.time.LocalDateTime;
 
 
 @Entity
-@Table(name="Usuario")
+@Table(name="usuarios")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String nombre;
 
@@ -30,9 +30,7 @@ public class Usuario {
         ADMIN, USUARIO
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -54,13 +52,15 @@ public class Usuario {
         this.creadoEn = creadoEn;
     }
 
-    public Long getId() {
-        return id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNombre() {
         return nombre;
     }
+
+
 
     public String getEmail() {
         return email;

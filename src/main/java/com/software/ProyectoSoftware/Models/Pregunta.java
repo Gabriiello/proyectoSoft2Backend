@@ -9,7 +9,7 @@ import java.util.Set;
 public class Pregunta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     @ManyToOne
     @JoinColumn(name = "cuestionario_id")
@@ -24,7 +24,7 @@ public class Pregunta {
 
     // Getters y Setters
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
@@ -40,7 +40,7 @@ public class Pregunta {
         return respuestas;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

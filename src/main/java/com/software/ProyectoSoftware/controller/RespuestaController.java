@@ -29,7 +29,7 @@ public class RespuestaController {
     }
 
     @PutMapping("/{id}")
-    public Respuesta updateRespuesta(@PathVariable Long id, @RequestBody Respuesta respuesta) {
+    public Respuesta updateRespuesta(@PathVariable int id, @RequestBody Respuesta respuesta) {
         respuesta.setId(id);
         return respuestaService.saveRespuesta(respuesta);
     }

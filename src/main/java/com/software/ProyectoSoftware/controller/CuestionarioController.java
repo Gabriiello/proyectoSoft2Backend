@@ -31,7 +31,7 @@ public class CuestionarioController {
     }
 
     @PutMapping("/{id}")
-    public Cuestionario updateCuestionario(@PathVariable Long id, @RequestBody Cuestionario cuestionario) {
+    public Cuestionario updateCuestionario(@PathVariable int id, @RequestBody Cuestionario cuestionario) {
         cuestionario.setId(id);
         return cuestionarioService.saveCuestionario(cuestionario);
     }

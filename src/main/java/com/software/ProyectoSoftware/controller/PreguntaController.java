@@ -31,7 +31,7 @@ public class PreguntaController {
     }
 
     @PutMapping("/{id}")
-    public Pregunta updatePregunta(@PathVariable Long id, @RequestBody Pregunta pregunta) {
+    public Pregunta updatePregunta(@PathVariable int id, @RequestBody Pregunta pregunta) {
         pregunta.setId(id);
         return preguntaService.savePregunta(pregunta);
     }

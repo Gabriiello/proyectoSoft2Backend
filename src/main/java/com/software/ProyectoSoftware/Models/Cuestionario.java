@@ -14,7 +14,7 @@ import java.util.Set;
 public class Cuestionario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int id;
 
     private String titulo;
 
@@ -33,7 +33,8 @@ public class Cuestionario {
 
     // Getters y Setters
 
-    public void setId(Long id) {
+
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -57,7 +58,7 @@ public class Cuestionario {
         this.preguntas = preguntas;
     }
 
-    public Long getId() {
+    public int getId() {
         return id;
     }
 
